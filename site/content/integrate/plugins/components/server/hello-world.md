@@ -23,12 +23,6 @@ You'll also need a Mattermost server to install and test the plugin. This server
 
 The process that will communicate with the Mattermost server is built using a set of APIs provided by the source code for the Mattermost server.
 
-Download the source code for the Mattermost server:
-
-```bash
-go get -u github.com/mattermost/server/v8
-```
-
 Define `$GOPATH`. By default, this is already `$HOME/go`, but it's helpful to make this explicit:
 ```shell
 export GOPATH=$HOME/go
@@ -39,6 +33,13 @@ Now, create a directory to act as your workspace:
 ```bash
 mkdir -p $GOPATH/src/my-plugin
 cd $GOPATH/src/my-plugin
+go mod init
+```
+
+Download the source code for the Mattermost server:
+
+```bash
+go get -u github.com/mattermost/mattermost/server/v8
 ```
 
 Create a file named `plugin.go` with the following contents:
